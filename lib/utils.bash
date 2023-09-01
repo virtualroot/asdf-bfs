@@ -2,7 +2,6 @@
 
 set -euo pipefail
 
-# TODO: Ensure this is the correct GitHub homepage where releases can be downloaded for bfs.
 GH_REPO="https://github.com/tavianator/bfs"
 TOOL_NAME="bfs"
 TOOL_TEST="bfs --version"
@@ -31,7 +30,6 @@ list_github_tags() {
 }
 
 list_all_versions() {
-	# TODO: Adapt this. By default we simply list the tag names from GitHub releases.
 	# Change this function if bfs has other means of determining installable versions.
 	list_github_tags
 }
@@ -64,7 +62,6 @@ install_version() {
 		cd "$install_path"
 		make
 
-		# TODO: Assert bfs executable exists.
 		local tool_cmd
 		tool_cmd="bin/$(echo "$TOOL_TEST" | cut -d' ' -f1)"
 		test -x "$install_path/$tool_cmd" || fail "Expected $install_path/$tool_cmd to be executable."
