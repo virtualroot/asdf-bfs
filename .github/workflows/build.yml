@@ -15,7 +15,28 @@ jobs:
           - ubuntu-latest
           - macos-latest
     runs-on: ${{ matrix.os }}
+
     steps:
+      - name:  Install dependencies
+        run: |
+          if [ "$RUNNER_OS" == "Linux" ]; then
+            sudo apt update -y && \
+            sudo apt install -y \
+              acl \
+              libacl1-dev \
+              attr \
+              libattr1-dev \
+              libcap2-bin \
+              libcap-dev \
+              libonig-dev
+          elif [ "$RUNNER_OS" == "macOS" ]; then
+            brew install oniguruma
+          else
+            echo "$RUNNER_OS not supported"
+            exit 1
+          fi
+        shell: bash
+
       - name: asdf_plugin_test
         uses: asdf-vm/actions/plugin-test@v2
         with:
