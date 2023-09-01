@@ -43,9 +43,6 @@ To build bfs from source, you need to install some [dependencies](https://github
 <strong>Void Linux</strong>
 # xbps-install -S acl-{devel,progs} attr-{devel,progs} libcap-{devel,progs} oniguruma-devel
 
-<strong>FreeBSD</strong>
-# pkg install oniguruma
-
 <strong>MacPorts</strong>
 # port install oniguruma6
 
