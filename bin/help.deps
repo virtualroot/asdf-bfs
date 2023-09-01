@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+current_script_path=${BASH_SOURCE[0]}
+plugin_dir=$(dirname "$(dirname "${current_script_path}")")
+
+# shellcheck source=./lib/utils.bash
+source "${plugin_dir}/lib/utils.bash"
+
+cat <<EOF
+**Dependencies**
+
+** Alpine Linux
+$ apk add acl{,-dev} attr{,-dev} libcap{,-dev} oniguruma-dev
+
+** Arch Linux
+$ pacman -S acl attr libcap oniguruma
+
+** Debian/Ubuntu
+$ apt install acl libacl1-dev attr libattr1-dev libcap2-bin libcap-dev libonig-dev
+
+** Fedora
+$ dnf install acl libacl-devel libattr-devel libcap-devel oniguruma-devel
+
+** NixOS
+$ nix-env -i acl attr libcap oniguruma
+
+** Void Linux
+$ xbps-install -S acl-{devel,progs} attr-{devel,progs} libcap-{devel,progs} oniguruma-devel
+
+** MacPorts
+$ port install oniguruma6
+
+** Homebrew
+$ brew install oniguruma
+
+EOF
