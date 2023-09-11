@@ -53,6 +53,8 @@ $ brew install oniguruma
 Plugin:
 
 ```shell
+asdf plugin add bfs
+# or
 asdf plugin add bfs https://github.com/virtualroot/asdf-bfs.git
 ```
 
