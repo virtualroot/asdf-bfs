@@ -28,6 +28,7 @@ jobs:
               libattr1-dev \
               libcap2-bin \
               libcap-dev \
+              liburing-dev \
               libonig-dev
           elif [ "$RUNNER_OS" == "macOS" ]; then
             brew install oniguruma
