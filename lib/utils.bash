@@ -60,7 +60,8 @@ install_version() {
 
 		# Build the binary
 		cd "$install_path"
-		make release
+		./configure RELEASE=y
+		make
 
 		local tool_cmd
 		tool_cmd="bin/$(echo "$TOOL_TEST" | cut -d' ' -f1)"
