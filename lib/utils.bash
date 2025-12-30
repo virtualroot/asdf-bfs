@@ -60,7 +60,7 @@ install_version() {
 
 		# Build the binary
 		cd "$install_path"
-		./configure RELEASE=y
+		./configure --enable-release
 		make
 
 		local tool_cmd
